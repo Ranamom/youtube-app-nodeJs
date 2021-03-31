@@ -1,0 +1,30 @@
+<div class="box-create-post p-3">
+    <form method="POST" action="/post/update-post/{{post._id}}" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" class="rounded-pill" placeholder="Tiêu đề bài viết !" value="{{post.title}}" name="title">
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea name="content" id="content" cols="30" rows="10" class="w-100">{{post.content}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">URL or ID Youtube:</label>
+            <input type="text" id="url" class="rounded-pill" placeholder="URL or ID Video youtube !" value="{{post.url}}" name="url">
+            {{#if message}}
+                <p>{{message}}</p>
+            {{/if}}
+            {{!-- <input type="file" class="form-control-file" name="image" placeholder="Hình ảnh bài viết !"> --}}
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" id="category" class="rounded-pill" placeholder="Thể loại bài viết !" value="{{post.category}}" name="category">
+        </div>
+        <div class="w-100 text-center p-3">
+            {{#if not_empty}}
+                <p>{{not_empty}}</p>
+            {{/if}}
+            <button type="submit" class="btn rounded-pill p-2"><i class="fas fa-cloud-upload-alt mr-2"></i>Update</button>
+        </div>
+    </form>
+</div>
